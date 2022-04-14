@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+
+<struts>
+
+    <!--S2-057漏洞需要开启alwaysSelectFullNamespace属性-->
+    <constant name="struts.mapper.alwaysSelectFullNamespace" value="true" />
+
+    <package name="default" namespace="/*" extends="struts-default">
+
+        <action name="test1">
+            <result type="redirectAction">testAction</result>
+        </action>
+
+        <action name="test2">
+            <result type="chain">testAction</result>
+        </action>
+
+        <action name="test3">
+            <result type="postback">testAction</result>
+        </action>
+
+    </package>
+
+</struts>
